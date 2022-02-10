@@ -1,11 +1,11 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     java
-    id("com.github.johnrengelman.shadow") version "7.0.0"
+    id("com.github.johnrengelman.shadow") version "7.1.2"
 }
 
 description = "testplugin"
-version = "1.170.0"
+version = "1.181.1"
 
 tasks {
     processResources {
@@ -17,6 +17,12 @@ tasks {
             }
             duplicatesStrategy = DuplicatesStrategy.INCLUDE
         }
+    }
+}
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
     }
 }
 
@@ -34,6 +40,6 @@ repositories {
 
 dependencies {
     implementation("co.aikar:acf-bukkit:0.5.0-SNAPSHOT")
-    compileOnly("io.papermc.paper:paper-api:1.17.1-R0.1-SNAPSHOT")
-    compileOnly("com.github.yannicklamprecht.worldborderapi:api:1.170.0")
+    compileOnly("io.papermc.paper:paper-api:1.18.1-R0.1-SNAPSHOT")
+    compileOnly("com.github.yannicklamprecht:worldborderapi:1.181.1")
 }
